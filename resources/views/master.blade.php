@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>wongaApp</title>
   <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/libs.css">
 </head>
 <body>
 
@@ -53,17 +54,19 @@
 
 	<div class="container">
 		@include('partials.errors')
-    @if(session()->has('flash_message'))
-          <div id="flashMessage">
-          <div class="alert alert-success">
-              {{ session()->get('flash_message') }}
-          </div>
-          </div>
-      @endif
     @yield('content')
 	</div>
 	
 <script src="/js/app.js"></script>
-
+@if(session()->has('flash_message'))
+    <script>
+      swal({   
+        title: "Success!",   
+        text: "{{ session()->get('flash_message') }}",   
+        type: "error",   
+        confirmButtonText: "Cool" 
+      });
+    </script>
+@endif
 </body>
 </html>
