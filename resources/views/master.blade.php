@@ -18,16 +18,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">ReelsApp</a>
+        <a class="navbar-brand" href="/">wongaApp</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          @if (Auth::check())
+
           <li><a href="{{ url('/home') }}">Dashboard</a></li>
-          <li><a href="/clips">Clips</a></li>
-          <li><a href="/reels">Reels</a></li>
-          <li><a href="/directors">Directors</a></li>
-          @endif
+          <li><a href="/income">Income</a></li>
+
         </ul>
 
         <!-- Right Side Of Navbar -->
@@ -55,10 +53,10 @@
 
 	<div class="container">
 		@include('partials.errors')
-    @if(Session::has('flash_message'))
+    @if(session()->has('flash_message'))
           <div id="flashMessage">
           <div class="alert alert-success">
-              {{ Session::get('flash_message') }}
+              {{ session()->get('flash_message') }}
           </div>
           </div>
       @endif
@@ -66,6 +64,6 @@
 	</div>
 	
 <script src="/js/app.js"></script>
-	
+
 </body>
 </html>
